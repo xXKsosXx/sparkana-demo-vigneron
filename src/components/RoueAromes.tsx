@@ -72,9 +72,10 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
           const x4 = cx + rInner * Math.cos(endAngle)
           const y4 = cy + rInner * Math.sin(endAngle)
 
-          const labelR = r + 28
-          const lx = cx + labelR * Math.cos(midAngle)
-          const ly = cy + labelR * Math.sin(midAngle)
+          // Place icon at center of segment (between inner and outer radius)
+          const iconR = (rInner + rActive) / 2
+          const ix = cx + iconR * Math.cos(midAngle)
+          const iy = cy + iconR * Math.sin(midAngle)
 
           return (
             <g
@@ -91,10 +92,10 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
                 style={{ transition: 'all 0.3s ease' }}
               />
               <text
-                x={lx} y={ly + 5}
+                x={ix} y={iy + 5}
                 textAnchor="middle"
-                fontSize={isActive ? '18' : '14'}
-                style={{ transition: 'font-size 0.3s ease' }}
+                fontSize={isActive ? '22' : '18'}
+                style={{ transition: 'font-size 0.3s ease', pointerEvents: 'none' }}
               >
                 {arome.icon}
               </text>

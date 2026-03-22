@@ -11,9 +11,9 @@ const aromesRouge = [
   { label: 'Fruits rouges', angle: 0, color: '#8B0000', icon: '\uD83C\uDF52' },
   { label: 'Garrigue', angle: 60, color: '#4a7c59', icon: '\uD83C\uDF3F' },
   { label: '\u00c9pices', angle: 120, color: '#8B4513', icon: '\uD83C\uDF36\uFE0F' },
-  { label: 'Olive noire', angle: 180, color: '#2d4a1e', icon: '\uD83E\uDED2' },
+  { label: 'Olive noire', angle: 180, color: '#2d4a1e', icon: '\uD83C\uDF43' },
   { label: 'Cuir', angle: 240, color: '#6B3A2A', icon: '\uD83C\uDF42' },
-  { label: 'Min\u00e9ral', angle: 300, color: '#708090', icon: '\uD83E\uDEA8' },
+  { label: 'Min\u00e9ral', angle: 300, color: '#708090', icon: '\uD83D\uDC8E' },
 ]
 
 const aromesBlancVin = [
