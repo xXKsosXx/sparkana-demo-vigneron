@@ -2,22 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  * {
+    border-radius: 0 !important;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #1c1c17;
+    background: #fcf9f0;
+    font-family: var(--font-work-sans), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #c5a059;
+    color: #2a0002;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Noise texture overlay */
+.noise-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  z-index: 1;
+}
+
+/* Fade in animation for IntersectionObserver */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sommelier card hover */
+.sommelier-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sommelier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(42, 0, 2, 0.04);
+}
+
+/* Nav transition */
+.nav-glass {
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
 @layer utilities {
