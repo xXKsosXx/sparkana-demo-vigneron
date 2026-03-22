@@ -18,9 +18,9 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
   const [activeArome, setActiveArome] = useState<number | null>(null)
 
   const cx = 160
-  const cy = 160
-  const r = 110
-  const rInner = 46
+  const cy = 150
+  const r = 100
+  const rInner = 42
 
   return (
     <div className="relative flex flex-col items-center">
@@ -105,7 +105,7 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
       </svg>
 
       {/* Label arome actif */}
-      <div className="h-8 flex items-center justify-center mt-1">
+      <div className="h-6 flex items-center justify-center -mt-2">
         {activeArome !== null ? (
           <span className="text-[#c5a059] text-sm tracking-widest uppercase font-medium">
             {aromes[activeArome].label}
