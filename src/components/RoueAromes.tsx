@@ -17,36 +17,36 @@ interface Props {
 export default function RoueAromes({ aromes, nomVin }: Props) {
   const [activeArome, setActiveArome] = useState<number | null>(null)
 
-  const cx = 120
-  const cy = 120
-  const r = 80
-  const rInner = 35
+  const cx = 160
+  const cy = 160
+  const r = 110
+  const rInner = 46
 
   return (
     <div className="relative flex flex-col items-center">
-      <svg width="240" height="240" viewBox="0 0 240 240">
+      <svg width="320" height="320" viewBox="0 0 320 320">
         {/* Cercle central */}
         <circle
           cx={cx} cy={cy} r={rInner}
           fill="#2a0002"
           stroke="#c5a059"
-          strokeWidth="1"
+          strokeWidth="1.5"
         />
         <text
           x={cx} y={cy - 6}
           textAnchor="middle"
           fill="#c5a059"
-          fontSize="8"
+          fontSize="11"
           fontFamily="Noto Serif"
           fontStyle="italic"
         >
           {nomVin.split(' ')[0]}
         </text>
         <text
-          x={cx} y={cy + 8}
+          x={cx} y={cy + 10}
           textAnchor="middle"
           fill="#c5a059"
-          fontSize="7"
+          fontSize="9"
           fontFamily="Noto Serif"
           fontStyle="italic"
         >
@@ -61,7 +61,7 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
           const midAngle = (startAngle + endAngle) / 2
 
           const isActive = activeArome === i
-          const rActive = isActive ? r + 12 : r
+          const rActive = isActive ? r + 14 : r
 
           const x1 = cx + rInner * Math.cos(startAngle)
           const y1 = cy + rInner * Math.sin(startAngle)
@@ -72,7 +72,7 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
           const x4 = cx + rInner * Math.cos(endAngle)
           const y4 = cy + rInner * Math.sin(endAngle)
 
-          const labelR = r + 22
+          const labelR = r + 28
           const lx = cx + labelR * Math.cos(midAngle)
           const ly = cy + labelR * Math.sin(midAngle)
 
@@ -91,9 +91,9 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
                 style={{ transition: 'all 0.3s ease' }}
               />
               <text
-                x={lx} y={ly + 4}
+                x={lx} y={ly + 5}
                 textAnchor="middle"
-                fontSize={isActive ? '14' : '11'}
+                fontSize={isActive ? '18' : '14'}
                 style={{ transition: 'font-size 0.3s ease' }}
               >
                 {arome.icon}
@@ -104,13 +104,13 @@ export default function RoueAromes({ aromes, nomVin }: Props) {
       </svg>
 
       {/* Label arome actif */}
-      <div className="h-8 flex items-center justify-center">
+      <div className="h-8 flex items-center justify-center mt-1">
         {activeArome !== null ? (
-          <span className="text-[#c5a059] text-xs tracking-widest uppercase font-medium">
+          <span className="text-[#c5a059] text-sm tracking-widest uppercase font-medium">
             {aromes[activeArome].label}
           </span>
         ) : (
-          <span className="text-[#9c8e89] text-[10px] tracking-widest uppercase">
+          <span className="text-[#9c8e89] text-xs tracking-widest uppercase">
             Survolez pour d&eacute;couvrir
           </span>
         )}
