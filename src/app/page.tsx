@@ -1,7 +1,8 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Chiffres from "@/components/Chiffres";
-import Collection from "@/components/Collection";
+import MeteoTerroir from "@/components/MeteoTerroir";
+import CollectionClient from "@/components/CollectionClient";
 import Terroir from "@/components/Terroir";
 import Experiences from "@/components/Experiences";
 import Presse from "@/components/Presse";
@@ -14,7 +15,8 @@ export default function Home() {
       <Nav />
       <Hero />
       <Chiffres />
-      <Collection />
+      <MeteoTerroir />
+      <CollectionClient />
       <Terroir />
       <Experiences />
       <Presse />
